@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account - BetMaster Pro</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/betting-style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+        <div class="container-fluid">
+            <!-- Brand -->
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-trophy-fill"></i> BetMaster Pro
+            </a>
+
+            <!-- Mobile Toggle -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navigation Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="bi bi-house"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="live-betting.html">
+                            <i class="bi bi-broadcast"></i> Live
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="bi bi-list-ul"></i> Sports
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="football.html">Football</a></li>
+                            <li><a class="dropdown-item" href="basketball.html">Basketball</a></li>
+                            <li><a class="dropdown-item" href="tennis.html">Tennis</a></li>
+                            <li><a class="dropdown-item" href="esports.html">Esports</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="promotions.html">
+                            <i class="bi bi-gift"></i> Promotions
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- User Actions -->
+                <div class="d-flex align-items-center">
+                    <!-- Balance Display -->
+                    <div class="balance-display me-3">
+                        <i class="bi bi-wallet2"></i> $1,234.56
+                    </div>
+                    
+                    <!-- User Menu -->
+                    <div class="dropdown">
+                        <button class="btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                            <i class="bi bi-person-circle"></i> John Doe
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item active" href="account.html">My Account</a></li>
+                            <li><a class="dropdown-item" href="bet-history.html">Bet History</a></li>
+                            <li><a class="dropdown-item" href="transactions.html">Transactions</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="login.html">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container-fluid" style="margin-top: 76px;">
+        <div class="row">
+            <!-- Account Sidebar -->
+            <div class="col-lg-3 p-0">
+                <div class="sidebar">
+                    <div class="p-3">
+                        <!-- User Profile Summary -->
+                        <div class="text-center mb-4">
+                            <img src="https://via.placeholder.com/80" class="rounded-circle mb-3" alt="Profile">
+                            <h5 class="text-primary mb-1">John Doe</h5>
+                            <p class="text-secondary mb-0">VIP Member</p>
+                            <div class="badge bg-warning mt-2">Level 3</div>
+                        </div>
+
+                        <!-- Account Navigation -->
+                        <nav class="nav flex-column">
+                            <a class="nav-link active d-flex align-items-center" href="#overview">
+                                <i class="bi bi-speedometer2 me-2"></i> Overview
+                            </a>
+                            <a class="nav-link d-flex align-items-center" href="#profile">
+                                <i class="bi bi-person me-2"></i> Profile Settings
+                            </a>
+                            <a class="nav-link d-flex align-items-center" href="#security">
+                                <i class="bi bi-shield-lock me-2"></i> Security
+                            </a>
+                            <a class="nav-link d-flex align-items-center" href="#wallet">
+                                <i class="bi bi-wallet2 me-2"></i> Wallet & Banking
+                            </a>
+                            <a class="nav-link d-flex align-items-center" href="#preferences">
+                                <i class="bi bi-gear me-2"></i> Preferences
+                            </a>
+                            <a class="nav-link d-flex align-items-center" href="#responsible">
+                                <i class="bi bi-heart me-2"></i> Responsible Gaming
+                            </a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Account Content -->
+            <div class="col-lg-9">
+                <div class="p-4">
+                    <!-- Account Overview Section -->
+                    <div id="overview" class="content-section">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h2 class="text-primary">Account Overview</h2>
+                            <button class="btn btn-outline-primary">
+                                <i class="bi bi-download me-1"></i> Export Data
+                            </button>
+                        </div>
+
+                        <!-- Account Statistics -->
+                        <div class="row mb-4">
+                            <div class="col-md-3 mb-3">
+                                <div class="card h-100" style="background: var(--card-bg); border: 1px solid var(--border-color);">
+                                    <div class="card-body text-center">
+                                        <i class="bi bi-wallet2 text-success" style="font-size: 2rem;"></i>
+                                        <h4 class="text-success mt-2 mb-1">$1,234.56</h4>
+                                        <p class="text-secondary mb-0">Current Balance</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <div class="card h-100" style="background: var(--card-bg); border: 1px solid var(--border-color);">
+                                    <div class="card-body text-center">
+                                        <i class="bi bi-graph-up text-warning" style="font-size: 2rem;"></i>
+                                        <h4 class="text-warning mt-2 mb-1">$2,890.45</h4>
+                                        <p class="text-secondary mb-0">Total Winnings</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <div class="card h-100" style="background: var(--card-bg); border: 1px solid var(--border-color);">
+                                    <div class="card-body text-center">
+                                        <i class="bi bi-ticket-perforated text-info" style="font-size: 2rem;"></i>
+                                        <h4 class="text-info mt-2 mb-1">147</h4>
+                                        <p class="text-secondary mb-0">Total Bets</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <div class="card h-100" style="background: var(--card-bg); border: 1px solid var(--border-color);">
+                                    <div class="card-body text-center">
+                                        <i class="bi bi-trophy text-primary" style="font-size: 2rem;"></i>
+                                        <h4 class="text-primary mt-2 mb-1">68%</h4>
+                                        <p class="text-secondary mb-0">Win Rate</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Recent Activity -->
+                        <div class="card mb-4" style="background: var(--card-bg); border: 1px solid var(--border-color);">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Recent Activity</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="activity-item d-flex justify-content-between align-items-center py-2 border-bottom">
+                                    <div>
+                                        <i class="bi bi-check-circle text-success me-2"></i>
+                                        <span>Bet won: Manchester United vs Liverpool</span>
+                                    </div>
+                                    <div class="text-end">
+                                        <div class="text-success">+$125.50</div>
+                                        <small class="text-secondary">2 hours ago</small>
+                                    </div>
+                                </div>
+                                <div class="activity-item d-flex justify-content-between align-items-center py-2 border-bottom">
+                                    <div>
+                                        <i class="bi bi-plus-circle text-info me-2"></i>
+                                        <span>Deposit via Credit Card</span>
+                                    </div>
+                                    <div class="text-end">
+                                        <div class="text-info">+$200.00</div>
+                                        <small class="text-secondary">1 day ago</small>
+                                    </div>
+                                </div>
+                                <div class="activity-item d-flex justify-content-between align-items-center py-2 border-bottom">
+                                    <div>
+                                        <i class="bi bi-x-circle text-danger me-2"></i>
+                                        <span>Bet lost: Barcelona vs Real Madrid</span>
+                                    </div>
+                                    <div class="text-end">
+                                        <div class="text-danger">-$50.00</div>
+                                        <small class="text-secondary">2 days ago</small>
+                                    </div>
+                                </div>
+                                <div class="activity-item d-flex justify-content-between align-items-center py-2">
+                                    <div>
+                                        <i class="bi bi-arrow-up-right text-warning me-2"></i>
+                                        <span>Withdrawal to Bank Account</span>
+                                    </div>
+                                    <div class="text-end">
+                                        <div class="text-warning">-$300.00</div>
+                                        <small class="text-secondary">3 days ago</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- VIP Status -->
+                        <div class="card" style="background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border: 1px solid var(--accent-color);">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col-md-8">
+                                        <h5 class="text-warning mb-2">
+                                            <i class="bi bi-star-fill me-2"></i>VIP Level 3 Member
+                                        </h5>
+                                        <p class="mb-2">You're enjoying exclusive benefits and higher limits!</p>
+                                        <div class="progress mb-2" style="height: 10px;">
+                                            <div class="progress-bar bg-warning" role="progressbar" style="width: 75%"></div>
+                                        </div>
+                                        <small class="text-secondary">$750 more to reach VIP Level 4</small>
+                                    </div>
+                                    <div class="col-md-4 text-center">
+                                        <i class="bi bi-gem text-warning" style="font-size: 3rem;"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Profile Settings Section -->
+                    <div id="profile" class="content-section" style="display: none;">
+                        <h2 class="text-primary mb-4">Profile Settings</h2>
+                        
+                        <div class="card" style="background: var(--card-bg); border: 1px solid var(--border-color);">
+                            <div class="card-body">
+                                <form>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="firstName" class="form-label">First Name</label>
+                                            <input type="text" class="form-control" id="firstName" value="John">
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="lastName" class="form-label">Last Name</label>
+                                            <input type="text" class="form-control" id="lastName" value="Doe">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="email" class="form-label">Email</label>
+                                            <input type="email" class="form-control" id="email" value="john.doe@example.com">
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="phone" class="form-label">Phone Number</label>
+                                            <input type="tel" class="form-control" id="phone" value="+1 (555) 123-4567">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="address" class="form-label">Address</label>
+                                        <input type="text" class="form-control" id="address" value="123 Main Street">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 mb-3">
+                                            <label for="city" class="form-label">City</label>
+                                            <input type="text" class="form-control" id="city" value="New York">
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label for="state" class="form-label">State</label>
+                                            <select class="form-control" id="state">
+                                                <option value="NY" selected>New York</option>
+                                                <option value="CA">California</option>
+                                                <option value="TX">Texas</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label for="zip" class="form-label">ZIP Code</label>
+                                            <input type="text" class="form-control" id="zip" value="10001">
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Update Profile</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Security Section -->
+                    <div id="security" class="content-section" style="display: none;">
+                        <h2 class="text-primary mb-4">Security Settings</h2>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <div class="card h-100" style="background: var(--card-bg); border: 1px solid var(--border-color);">
+                                    <div class="card-header">
+                                        <h5 class="card-title mb-0">Change Password</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <form>
+                                            <div class="mb-3">
+                                                <label for="currentPassword" class="form-label">Current Password</label>
+                                                <input type="password" class="form-control" id="currentPassword">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="newPassword" class="form-label">New Password</label>
+                                                <input type="password" class="form-control" id="newPassword">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                                                <input type="password" class="form-control" id="confirmPassword">
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Update Password</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class="card h-100" style="background: var(--card-bg); border: 1px solid var(--border-color);">
+                                    <div class="card-header">
+                                        <h5 class="card-title mb-0">Two-Factor Authentication</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-center mb-3">
+                                            <div>
+                                                <h6 class="mb-1">2FA Status</h6>
+                                                <small class="text-success">Enabled</small>
+                                            </div>
+                                            <i class="bi bi-shield-check text-success" style="font-size: 2rem;"></i>
+                                        </div>
+                                        <p class="text-secondary">Two-factor authentication adds an extra layer of security to your account.</p>
+                                        <button class="btn btn-outline-danger">Disable 2FA</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Login History -->
+                        <div class="card" style="background: var(--card-bg); border: 1px solid var(--border-color);">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Recent Login Activity</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-dark table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Date & Time</th>
+                                                <th>IP Address</th>
+                                                <th>Device</th>
+                                                <th>Location</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Aug 13, 2025 14:30</td>
+                                                <td>192.168.1.1</td>
+                                                <td>Chrome, Windows</td>
+                                                <td>New York, US</td>
+                                                <td><span class="badge bg-success">Success</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Aug 12, 2025 09:15</td>
+                                                <td>192.168.1.1</td>
+                                                <td>Safari, iPhone</td>
+                                                <td>New York, US</td>
+                                                <td><span class="badge bg-success">Success</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Aug 11, 2025 20:45</td>
+                                                <td>10.0.0.1</td>
+                                                <td>Chrome, Android</td>
+                                                <td>Unknown</td>
+                                                <td><span class="badge bg-danger">Failed</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Wallet & Banking Section -->
+                    <div id="wallet" class="content-section" style="display: none;">
+                        <h2 class="text-primary mb-4">Wallet & Banking</h2>
+
+                        <div class="row mb-4">
+                            <div class="col-md-6 mb-3">
+                                <div class="card" style="background: var(--card-bg); border: 1px solid var(--success-color);">
+                                    <div class="card-body text-center">
+                                        <i class="bi bi-plus-circle text-success" style="font-size: 2.5rem;"></i>
+                                        <h5 class="text-success mt-2">Deposit Funds</h5>
+                                        <p class="text-secondary">Add money to your account</p>
+                                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#depositModal">
+                                            Deposit Now
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="card" style="background: var(--card-bg); border: 1px solid var(--warning-color);">
+                                    <div class="card-body text-center">
+                                        <i class="bi bi-arrow-up-right text-warning" style="font-size: 2.5rem;"></i>
+                                        <h5 class="text-warning mt-2">Withdraw Funds</h5>
+                                        <p class="text-secondary">Cash out your winnings</p>
+                                        <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#withdrawModal">
+                                            Withdraw Now
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Payment Methods -->
+                        <div class="card mb-4" style="background: var(--card-bg); border: 1px solid var(--border-color);">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <h5 class="card-title mb-0">Payment Methods</h5>
+                                <button class="btn btn-outline-primary btn-sm">Add New Method</button>
+                            </div>
+                            <div class="card-body">
+                                <div class="payment-method d-flex justify-content-between align-items-center p-3 mb-2" 
+                                     style="background: rgba(0,0,0,0.2); border-radius: 8px;">
+                                    <div class="d-flex align-items-center">
+                                        <i class="bi bi-credit-card text-primary me-3" style="font-size: 1.5rem;"></i>
+                                        <div>
+                                            <h6 class="mb-1">Visa ending in 4567</h6>
+                                            <small class="text-secondary">Expires 12/26</small>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="badge bg-success me-2">Primary</span>
+                                        <button class="btn btn-outline-danger btn-sm">Remove</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="payment-method d-flex justify-content-between align-items-center p-3" 
+                                     style="background: rgba(0,0,0,0.2); border-radius: 8px;">
+                                    <div class="d-flex align-items-center">
+                                        <i class="bi bi-paypal text-info me-3" style="font-size: 1.5rem;"></i>
+                                        <div>
+                                            <h6 class="mb-1">PayPal Account</h6>
+                                            <small class="text-secondary">john.doe@example.com</small>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <button class="btn btn-outline-primary btn-sm me-2">Set Primary</button>
+                                        <button class="btn btn-outline-danger btn-sm">Remove</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Transaction Limits -->
+                        <div class="card" style="background: var(--card-bg); border: 1px solid var(--border-color);">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Transaction Limits</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="limit-item mb-3">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span>Daily Deposit Limit</span>
+                                                <span class="text-warning">$5,000</span>
+                                            </div>
+                                            <div class="progress mt-1" style="height: 6px;">
+                                                <div class="progress-bar bg-warning" style="width: 40%"></div>
+                                            </div>
+                                            <small class="text-secondary">$2,000 used today</small>
+                                        </div>
+                                        
+                                        <div class="limit-item mb-3">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span>Weekly Withdrawal Limit</span>
+                                                <span class="text-info">$10,000</span>
+                                            </div>
+                                            <div class="progress mt-1" style="height: 6px;">
+                                                <div class="progress-bar bg-info" style="width: 15%"></div>
+                                            </div>
+                                            <small class="text-secondary">$1,500 used this week</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="limit-item mb-3">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span>Single Bet Limit</span>
+                                                <span class="text-success">$2,000</span>
+                                            </div>
+                                            <small class="text-secondary">VIP Level 3 benefit</small>
+                                        </div>
+                                        
+                                        <div class="limit-item">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span>Monthly Loss Limit</span>
+                                                <span class="text-danger">$1,000</span>
+                                            </div>
+                                            <div class="progress mt-1" style="height: 6px;">
+                                                <div class="progress-bar bg-danger" style="width: 25%"></div>
+                                            </div>
+                                            <small class="text-secondary">$250 lost this month</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-center mt-3">
+                                    <button class="btn btn-outline-primary">Modify Limits</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Responsible Gaming Section -->
+                    <div id="responsible" class="content-section" style="display: none;">
+                        <h2 class="text-primary mb-4">
+                            <i class="bi bi-heart me-2"></i>Responsible Gaming
+                        </h2>
+
+                        <div class="alert alert-info" role="alert">
+                            <i class="bi bi-info-circle me-2"></i>
+                            We're committed to promoting responsible gambling. Set limits to keep your betting fun and under control.
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <div class="card" style="background: var(--card-bg); border: 1px solid var(--border-color);">
+                                    <div class="card-header">
+                                        <h5 class="card-title mb-0">Deposit Limits</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <form>
+                                            <div class="mb-3">
+                                                <label class="form-label">Daily Limit</label>
+                                                <input type="number" class="form-control" value="500" max="5000">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Weekly Limit</label>
+                                                <input type="number" class="form-control" value="2000" max="10000">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Monthly Limit</label>
+                                                <input type="number" class="form-control" value="5000" max="25000">
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Update Limits</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 mb-4">
+                                <div class="card" style="background: var(--card-bg); border: 1px solid var(--border-color);">
+                                    <div class="card-header">
+                                        <h5 class="card-title mb-0">Time Management</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="session-info mb-3">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span>Current Session</span>
+                                                <span class="text-warning">2h 15m</span>
+                                            </div>
+                                            <div class="progress mt-1" style="height: 6px;">
+                                                <div class="progress-bar bg-warning" style="width: 45%"></div>
+                                            </div>
+                                            <small class="text-secondary">Daily limit: 5 hours</small>
+                                        </div>
+                                        
+                                        <form>
+                                            <div class="mb-3">
+                                                <label class="form-label">Session Reminder (minutes)</label>
+                                                <select class="form-control">
+                                                    <option value="30">30 minutes</option>
+                                                    <option value="60" selected>1 hour</option>
+                                                    <option value="120">2 hours</option>
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" checked>
+                                                    <label class="form-check-label">Enable session reminders</label>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Save Settings</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Self-Exclusion -->
+                        <div class="card" style="background: var(--card-bg); border: 1px solid var(--danger-color);">
+                            <div class="card-header bg-danger">
+                                <h5 class="card-title text-white mb-0">
+                                    <i class="bi bi-exclamation-triangle me-2"></i>Self-Exclusion
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <p>If you feel you need a break from gambling, you can temporarily or permanently exclude yourself from our platform.</p>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6>Temporary Exclusion</h6>
+                                        <p class="text-secondary">Take a break for a specified period</p>
+                                        <div class="btn-group d-grid gap-2" role="group">
+                                            <button class="btn btn-outline-warning">24 Hours</button>
+                                            <button class="btn btn-outline-warning">1 Week</button>
+                                            <button class="btn btn-outline-warning">1 Month</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6>Permanent Exclusion</h6>
+                                        <p class="text-secondary">Permanently close your account</p>
+                                        <button class="btn btn-danger">Request Permanent Exclusion</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Deposit Modal -->
+    <div class="modal fade" id="depositModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Deposit Funds</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label">Amount</label>
+                            <input type="number" class="form-control" placeholder="Enter amount" min="10" max="5000">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Payment Method</label>
+                            <select class="form-control">
+                                <option>Visa ending in 4567</option>
+                                <option>PayPal Account</option>
+                            </select>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-success">Deposit Now</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Account Page JS -->
+    <script>
+        // Account navigation
+        document.addEventListener('click', function(e) {
+            if (e.target.matches('.nav-link[href^="#"]')) {
+                e.preventDefault();
+                
+                // Remove active class from all nav links
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active');
+                });
+                
+                // Add active class to clicked link
+                e.target.classList.add('active');
+                
+                // Hide all content sections
+                document.querySelectorAll('.content-section').forEach(section => {
+                    section.style.display = 'none';
+                });
+                
+                // Show target section
+                const targetId = e.target.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.style.display = 'block';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -26,7 +26,7 @@ return new class extends Migration
             $table->json('metadata')->nullable(); // Additional option data
             $table->timestamps();
             
-            $table->unique(['match_id', 'bet_market_id', 'value']);
+            $table->unique(['match_id', 'bet_market_id', 'value'], 'bet_options_unique');
             $table->index(['match_id', 'bet_market_id']);
             $table->index(['is_active', 'is_suspended']);
         });

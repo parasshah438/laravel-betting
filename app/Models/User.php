@@ -144,6 +144,15 @@ class User extends Authenticatable
         return $this->status === 'active';
     }
 
+    public function hasRole($roles): bool
+    {
+        if (is_string($roles)) {
+            $roles = [$roles];
+        }
+
+        return in_array($this->role, $roles);
+    }
+
     public function getMainWallet()
     {
         return $this->wallets()->where('currency', $this->currency)->first();

@@ -25,7 +25,8 @@ return new class extends Migration
             $table->text('notes')->nullable();
             $table->timestamps();
             
-            $table->unique(['user_id', 'limit_type', 'limit_category', 'period_start']);
+            // Use shorter name for unique constraint to avoid MySQL 64-char limit
+            $table->unique(['user_id', 'limit_type', 'limit_category', 'period_start'], 'betting_limits_unique');
             $table->index(['user_id', 'is_active']);
             $table->index(['period_start', 'period_end']);
         });

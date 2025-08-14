@@ -1,0 +1,482 @@
+@extends('layouts.app')
+
+@section('title', 'Live Betting - BetMaster Pro')
+
+@section('content')
+<div class="container-fluid">
+    <div class="row">
+        <!-- Sidebar -->
+        <div class="col-lg-2 p-0 sidebar">
+            <!-- Live Sports Filter -->
+            <div class="sport-category active">
+                <div>
+                    <i class="bi bi-broadcast live-indicator"></i>
+                    <span class="ms-2">All Live</span>
+                </div>
+                <span class="badge bg-danger">8</span>
+            </div>
+            
+            <div class="sport-category">
+                <div>
+                    <i class="bi bi-dribbble"></i>
+                    <span class="ms-2">Football</span>
+                </div>
+                <span class="badge bg-danger">4</span>
+            </div>
+            
+            <div class="sport-category">
+                <div>
+                    <i class="bi bi-basketball"></i>
+                    <span class="ms-2">Basketball</span>
+                </div>
+                <span class="badge bg-danger">2</span>
+            </div>
+            
+            <div class="sport-category">
+                <div>
+                    <i class="bi bi-tennis-ball"></i>
+                    <span class="ms-2">Tennis</span>
+                </div>
+                <span class="badge bg-danger">2</span>
+            </div>
+        </div>
+
+        <!-- Live Matches Area -->
+        <div class="col-lg-7">
+            <div class="p-3">
+                <!-- Page Header -->
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <div>
+                        <h2 class="text-danger mb-1">
+                            <i class="bi bi-broadcast live-indicator me-2"></i>Live Betting
+                        </h2>
+                        <p class="text-secondary mb-0">Real-time betting on live matches</p>
+                    </div>
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-outline-danger active">In-Play</button>
+                        <button type="button" class="btn btn-outline-danger">Starting Soon</button>
+                    </div>
+                </div>
+
+                <!-- Live Match 1 - Football -->
+                <div class="row">
+                    <div class="col-12 mb-3">
+                        <div class="match-card live-match">
+                            <div class="match-header">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <div class="league-name">Premier League</div>
+                                        <div class="match-time">
+                                            <span class="match-minute">73'</span> • Live
+                                            <i class="bi bi-dot text-danger"></i>
+                                            <small class="text-success">2nd Half</small>
+                                        </div>
+                                    </div>
+                                    <div class="text-end">
+                                        <i class="bi bi-eye me-1"></i> 15,234 watching
+                                        <br>
+                                        <button class="btn btn-sm btn-outline-info mt-1">
+                                            <i class="bi bi-camera-video"></i> Watch
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="teams-section">
+                                <div class="row align-items-center">
+                                    <div class="col-4">
+                                        <div class="d-flex align-items-center">
+                                            <img src="https://via.placeholder.com/32" alt="Chelsea" class="team-logo me-2">
+                                            <span class="team-name">Chelsea</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 text-center">
+                                        <div class="match-score">1 - 2</div>
+                                        <div class="vs-separator">vs</div>
+                                    </div>
+                                    <div class="col-4 text-end">
+                                        <div class="d-flex align-items-center justify-content-end">
+                                            <span class="team-name">Arsenal</span>
+                                            <img src="https://via.placeholder.com/32" alt="Arsenal" class="team-logo ms-2">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Live Statistics -->
+                            <div class="p-3 border-top border-bottom" style="background: rgba(0,0,0,0.2);">
+                                <div class="row text-center">
+                                    <div class="col-3">
+                                        <div class="text-warning fw-bold">58%</div>
+                                        <small class="text-secondary">Possession</small>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="text-warning fw-bold">12</div>
+                                        <small class="text-secondary">Shots</small>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="text-warning fw-bold">6</div>
+                                        <small class="text-secondary">On Target</small>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="text-warning fw-bold">7</div>
+                                        <small class="text-secondary">Corners</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Live Betting Markets -->
+                            <div class="odds-container">
+                                <div class="row g-2 mb-3">
+                                    <div class="col-12">
+                                        <small class="text-secondary fw-bold">NEXT GOAL</small>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="text-center">
+                                            <div class="odds-label">Chelsea</div>
+                                            <button class="odds-btn" data-selection="Chelsea Next Goal" data-odds="2.1">
+                                                <div class="odds-value">2.10</div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="text-center">
+                                            <div class="odds-label">Arsenal</div>
+                                            <button class="odds-btn" data-selection="Arsenal Next Goal" data-odds="1.85">
+                                                <div class="odds-value">1.85</div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="text-center">
+                                            <div class="odds-label">No Goal</div>
+                                            <button class="odds-btn" data-selection="No More Goals" data-odds="3.4">
+                                                <div class="odds-value">3.40</div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row g-2 mb-3">
+                                    <div class="col-12">
+                                        <small class="text-secondary fw-bold">MATCH RESULT</small>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="text-center">
+                                            <div class="odds-label">Chelsea Win</div>
+                                            <button class="odds-btn" data-selection="Chelsea Win" data-odds="4.2">
+                                                <div class="odds-value">4.20</div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="text-center">
+                                            <div class="odds-label">Draw</div>
+                                            <button class="odds-btn" data-selection="Draw" data-odds="3.8">
+                                                <div class="odds-value">3.80</div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="text-center">
+                                            <div class="odds-label">Arsenal Win</div>
+                                            <button class="odds-btn" data-selection="Arsenal Win" data-odds="1.7">
+                                                <div class="odds-value">1.70</div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="text-center">
+                                    <button class="btn btn-outline-primary btn-sm">
+                                        <i class="bi bi-plus-circle"></i> 25+ More Markets
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Live Match 2 - Basketball -->
+                    <div class="col-12 mb-3">
+                        <div class="match-card live-match">
+                            <div class="match-header">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <div class="league-name">NBA</div>
+                                        <div class="match-time">
+                                            <span class="match-minute">Q3 8:42</span> • Live
+                                            <i class="bi bi-dot text-danger"></i>
+                                            <small class="text-success">3rd Quarter</small>
+                                        </div>
+                                    </div>
+                                    <div class="text-end">
+                                        <i class="bi bi-eye me-1"></i> 8,567 watching
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="teams-section">
+                                <div class="row align-items-center">
+                                    <div class="col-4">
+                                        <div class="d-flex align-items-center">
+                                            <img src="https://via.placeholder.com/32" alt="Lakers" class="team-logo me-2">
+                                            <span class="team-name">LA Lakers</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 text-center">
+                                        <div class="match-score">89 - 92</div>
+                                        <div class="vs-separator">vs</div>
+                                    </div>
+                                    <div class="col-4 text-end">
+                                        <div class="d-flex align-items-center justify-content-end">
+                                            <span class="team-name">Boston Celtics</span>
+                                            <img src="https://via.placeholder.com/32" alt="Celtics" class="team-logo ms-2">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="odds-container">
+                                <div class="row g-2 mb-3">
+                                    <div class="col-12">
+                                        <small class="text-secondary fw-bold">MATCH WINNER</small>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="text-center">
+                                            <div class="odds-label">LA Lakers</div>
+                                            <button class="odds-btn" data-selection="Lakers Win" data-odds="2.3">
+                                                <div class="odds-value">2.30</div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="text-center">
+                                            <div class="odds-label">Boston Celtics</div>
+                                            <button class="odds-btn" data-selection="Celtics Win" data-odds="1.6">
+                                                <div class="odds-value">1.60</div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row g-2">
+                                    <div class="col-6">
+                                        <div class="text-center">
+                                            <div class="odds-label">Total Over 185.5</div>
+                                            <button class="odds-btn" data-selection="Over 185.5" data-odds="1.9">
+                                                <div class="odds-value">1.90</div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="text-center">
+                                            <div class="odds-label">Total Under 185.5</div>
+                                            <button class="odds-btn" data-selection="Under 185.5" data-odds="1.9">
+                                                <div class="odds-value">1.90</div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Live Match 3 - Tennis -->
+                    <div class="col-12 mb-3">
+                        <div class="match-card live-match">
+                            <div class="match-header">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <div class="league-name">US Open</div>
+                                        <div class="match-time">
+                                            <span class="match-minute">Set 3</span> • Live
+                                            <i class="bi bi-dot text-danger"></i>
+                                            <small class="text-success">Djokovic serving</small>
+                                        </div>
+                                    </div>
+                                    <div class="text-end">
+                                        <i class="bi bi-eye me-1"></i> 22,891 watching
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="teams-section">
+                                <div class="row align-items-center">
+                                    <div class="col-4">
+                                        <div class="d-flex align-items-center">
+                                            <img src="https://via.placeholder.com/32" alt="Djokovic" class="team-logo me-2">
+                                            <span class="team-name">N. Djokovic</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 text-center">
+                                        <div class="match-score">
+                                            <div>6-4, 4-6, 3-2</div>
+                                            <small class="text-warning">30-15</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 text-end">
+                                        <div class="d-flex align-items-center justify-content-end">
+                                            <span class="team-name">C. Alcaraz</span>
+                                            <img src="https://via.placeholder.com/32" alt="Alcaraz" class="team-logo ms-2">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="odds-container">
+                                <div class="row g-2 mb-3">
+                                    <div class="col-12">
+                                        <small class="text-secondary fw-bold">MATCH WINNER</small>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="text-center">
+                                            <div class="odds-label">Djokovic</div>
+                                            <button class="odds-btn" data-selection="Djokovic Win" data-odds="1.45">
+                                                <div class="odds-value">1.45</div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="text-center">
+                                            <div class="odds-label">Alcaraz</div>
+                                            <button class="odds-btn" data-selection="Alcaraz Win" data-odds="2.75">
+                                                <div class="odds-value">2.75</div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row g-2">
+                                    <div class="col-12">
+                                        <small class="text-secondary fw-bold">NEXT GAME WINNER</small>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="text-center">
+                                            <button class="odds-btn" data-selection="Djokovic Next Game" data-odds="1.3">
+                                                <div class="odds-value">1.30</div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="text-center">
+                                            <button class="odds-btn" data-selection="Alcaraz Next Game" data-odds="3.2">
+                                                <div class="odds-value">3.20</div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Enhanced Bet Slip for Live Betting -->
+        <div class="col-lg-3">
+            <div class="p-3">
+                <div class="bet-slip">
+                    <div class="bet-slip-header">
+                        <h5 class="bet-slip-title">
+                            <i class="bi bi-broadcast live-indicator me-2"></i>Live Bet Slip
+                        </h5>
+                        <span class="bet-slip-count">0</span>
+                    </div>
+                    
+                    <div class="bet-slip-content" id="betSlipContent">
+                        <div class="text-center p-4">
+                            <i class="bi bi-lightning-charge" style="font-size: 3rem; color: var(--text-secondary);"></i>
+                            <p class="text-secondary mt-2 mb-0">Click on live odds to bet instantly</p>
+                        </div>
+                    </div>
+
+                    <!-- Bet Summary -->
+                    <div class="bet-summary" id="betSummary" style="display: none;">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>Total Stake:</span>
+                            <span class="total-stake">$0.00</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>Total Odds:</span>
+                            <span class="total-odds">0.00</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-3">
+                            <strong>Potential Return:</strong>
+                            <strong class="potential-return">$0.00</strong>
+                        </div>
+                        <button class="place-bet-btn" id="placeBetBtn" disabled>
+                            <i class="bi bi-lightning-charge me-1"></i> Place Live Bet
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Live Betting Features -->
+                <div class="mt-3">
+                    <div class="card" style="background: var(--card-bg); border: 1px solid var(--border-color);">
+                        <div class="card-header">
+                            <h6 class="card-title mb-0">
+                                <i class="bi bi-speedometer2 me-1"></i>Live Features
+                            </h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <small>Auto-update odds</small>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="autoUpdate" checked>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <small>Live notifications</small>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="notifications" checked>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small>Cash out available</small>
+                                <span class="badge bg-success">Active</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Active Live Bets -->
+                <div class="mt-3">
+                    <div class="card" style="background: var(--card-bg); border: 1px solid var(--border-color);">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h6 class="card-title mb-0">Active Live Bets</h6>
+                            <span class="badge bg-warning">2</span>
+                        </div>
+                        <div class="card-body p-2">
+                            <div class="active-bet mb-2 p-2" style="background: rgba(0,0,0,0.2); border-radius: 6px;">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                        <small class="text-secondary">Chelsea vs Arsenal</small>
+                                        <div class="fw-bold">Arsenal Win</div>
+                                        <small class="text-success">Stake: $25.00</small>
+                                    </div>
+                                    <button class="btn btn-outline-warning btn-sm">
+                                        Cash Out $42.50
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="active-bet p-2" style="background: rgba(0,0,0,0.2); border-radius: 6px;">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                        <small class="text-secondary">Lakers vs Celtics</small>
+                                        <div class="fw-bold">Over 185.5</div>
+                                        <small class="text-success">Stake: $50.00</small>
+                                    </div>
+                                    <button class="btn btn-outline-warning btn-sm">
+                                        Cash Out $68.75
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection

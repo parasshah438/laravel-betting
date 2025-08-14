@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bet History - BetMaster Pro</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/betting-style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+        <div class="container-fluid">
+            <!-- Brand -->
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-trophy-fill"></i> BetMaster Pro
+            </a>
+
+            <!-- Mobile Toggle -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navigation Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="bi bi-house"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="live-betting.html">
+                            <i class="bi bi-broadcast"></i> Live
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="bi bi-list-ul"></i> Sports
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="football.html">Football</a></li>
+                            <li><a class="dropdown-item" href="basketball.html">Basketball</a></li>
+                            <li><a class="dropdown-item" href="tennis.html">Tennis</a></li>
+                            <li><a class="dropdown-item" href="esports.html">Esports</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="promotions.html">
+                            <i class="bi bi-gift"></i> Promotions
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- User Actions -->
+                <div class="d-flex align-items-center">
+                    <!-- Balance Display -->
+                    <div class="balance-display me-3">
+                        <i class="bi bi-wallet2"></i> $1,234.56
+                    </div>
+                    
+                    <!-- User Menu -->
+                    <div class="dropdown">
+                        <button class="btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                            <i class="bi bi-person-circle"></i> John Doe
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="account.html">My Account</a></li>
+                            <li><a class="dropdown-item active" href="bet-history.html">Bet History</a></li>
+                            <li><a class="dropdown-item" href="transactions.html">Transactions</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="login.html">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container-fluid" style="margin-top: 76px;">
+        <div class="row">
+            <!-- Sidebar Filters -->
+            <div class="col-lg-3 p-0 sidebar">
+                <div class="p-3">
+                    <h5 class="text-primary mb-3">Bet Filters</h5>
+                    
+                    <!-- Bet Status Filter -->
+                    <div class="filter-section mb-4">
+                        <h6 class="text-secondary mb-2">Status</h6>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="all-status" checked>
+                            <label class="form-check-label" for="all-status">All</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="won-status">
+                            <label class="form-check-label" for="won-status">
+                                <span class="text-success">Won</span>
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="lost-status">
+                            <label class="form-check-label" for="lost-status">
+                                <span class="text-danger">Lost</span>
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="pending-status">
+                            <label class="form-check-label" for="pending-status">
+                                <span class="text-warning">Pending</span>
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="cashout-status">
+                            <label class="form-check-label" for="cashout-status">
+                                <span class="text-info">Cashed Out</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Date Range Filter -->
+                    <div class="filter-section mb-4">
+                        <h6 class="text-secondary mb-2">Date Range</h6>
+                        <div class="btn-group-vertical d-grid gap-2" role="group">
+                            <button type="button" class="btn btn-outline-primary active">All Time</button>
+                            <button type="button" class="btn btn-outline-primary">Today</button>
+                            <button type="button" class="btn btn-outline-primary">Last 7 Days</button>
+                            <button type="button" class="btn btn-outline-primary">Last 30 Days</button>
+                            <button type="button" class="btn btn-outline-primary">This Month</button>
+                        </div>
+                    </div>
+
+                    <!-- Sport Filter -->
+                    <div class="filter-section mb-4">
+                        <h6 class="text-secondary mb-2">Sport</h6>
+                        <select class="form-control">
+                            <option value="">All Sports</option>
+                            <option value="football">Football</option>
+                            <option value="basketball">Basketball</option>
+                            <option value="tennis">Tennis</option>
+                            <option value="esports">Esports</option>
+                        </select>
+                    </div>
+
+                    <!-- Bet Type Filter -->
+                    <div class="filter-section mb-4">
+                        <h6 class="text-secondary mb-2">Bet Type</h6>
+                        <select class="form-control">
+                            <option value="">All Types</option>
+                            <option value="single">Single</option>
+                            <option value="accumulator">Accumulator</option>
+                            <option value="system">System</option>
+                        </select>
+                    </div>
+
+                    <button class="btn btn-primary w-100">Apply Filters</button>
+                </div>
+            </div>
+
+            <!-- Bet History Content -->
+            <div class="col-lg-9">
+                <div class="p-4">
+                    <!-- Page Header -->
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <div>
+                            <h2 class="text-primary mb-1">Bet History</h2>
+                            <p class="text-secondary mb-0">Track your betting performance and results</p>
+                        </div>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-outline-primary active">List View</button>
+                            <button type="button" class="btn btn-outline-primary">Card View</button>
+                        </div>
+                    </div>
+
+                    <!-- Summary Stats -->
+                    <div class="row mb-4">
+                        <div class="col-lg-3 col-md-6 mb-3">
+                            <div class="card" style="background: var(--card-bg); border: 1px solid var(--border-color);">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-ticket-perforated text-primary" style="font-size: 2rem;"></i>
+                                    <h4 class="text-primary mt-2 mb-1">147</h4>
+                                    <p class="text-secondary mb-0">Total Bets</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-3">
+                            <div class="card" style="background: var(--card-bg); border: 1px solid var(--border-color);">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-check-circle text-success" style="font-size: 2rem;"></i>
+                                    <h4 class="text-success mt-2 mb-1">100</h4>
+                                    <p class="text-secondary mb-0">Bets Won</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-3">
+                            <div class="card" style="background: var(--card-bg); border: 1px solid var(--border-color);">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-graph-up text-warning" style="font-size: 2rem;"></i>
+                                    <h4 class="text-warning mt-2 mb-1">68%</h4>
+                                    <p class="text-secondary mb-0">Win Rate</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-3">
+                            <div class="card" style="background: var(--card-bg); border: 1px solid var(--border-color);">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-currency-dollar text-info" style="font-size: 2rem;"></i>
+                                    <h4 class="text-info mt-2 mb-1">+$890</h4>
+                                    <p class="text-secondary mb-0">Net Profit</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bet History Table -->
+                    <div class="card" style="background: var(--card-bg); border: 1px solid var(--border-color);">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="card-title mb-0">Recent Bets</h5>
+                            <button class="btn btn-outline-primary btn-sm">
+                                <i class="bi bi-download me-1"></i> Export CSV
+                            </button>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table table-dark table-hover mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>Bet ID</th>
+                                            <th>Date</th>
+                                            <th>Match/Event</th>
+                                            <th>Selection</th>
+                                            <th>Type</th>
+                                            <th>Odds</th>
+                                            <th>Stake</th>
+                                            <th>Potential Win</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Won Bet -->
+                                        <tr>
+                                            <td><strong>#BET001247</strong></td>
+                                            <td>Aug 13, 2025<br><small class="text-secondary">14:30</small></td>
+                                            <td>
+                                                <div>Manchester United vs Liverpool</div>
+                                                <small class="text-secondary">Premier League</small>
+                                            </td>
+                                            <td>Liverpool Win</td>
+                                            <td><span class="badge bg-primary">Single</span></td>
+                                            <td><strong>2.45</strong></td>
+                                            <td>$50.00</td>
+                                            <td>$122.50</td>
+                                            <td><span class="badge bg-success">Won</span></td>
+                                            <td>
+                                                <button class="btn btn-outline-info btn-sm" data-bs-toggle="modal" data-bs-target="#betDetailsModal">
+                                                    <i class="bi bi-eye"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Lost Bet -->
+                                        <tr>
+                                            <td><strong>#BET001246</strong></td>
+                                            <td>Aug 12, 2025<br><small class="text-secondary">20:00</small></td>
+                                            <td>
+                                                <div>Barcelona vs Real Madrid</div>
+                                                <small class="text-secondary">La Liga</small>
+                                            </td>
+                                            <td>Barcelona Win</td>
+                                            <td><span class="badge bg-primary">Single</span></td>
+                                            <td><strong>2.20</strong></td>
+                                            <td>$25.00</td>
+                                            <td>$55.00</td>
+                                            <td><span class="badge bg-danger">Lost</span></td>
+                                            <td>
+                                                <button class="btn btn-outline-info btn-sm">
+                                                    <i class="bi bi-eye"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Pending Bet -->
+                                        <tr>
+                                            <td><strong>#BET001245</strong></td>
+                                            <td>Aug 13, 2025<br><small class="text-secondary">16:45</small></td>
+                                            <td>
+                                                <div>Lakers vs Celtics</div>
+                                                <small class="text-secondary">NBA</small>
+                                            </td>
+                                            <td>Over 185.5 Points</td>
+                                            <td><span class="badge bg-primary">Single</span></td>
+                                            <td><strong>1.90</strong></td>
+                                            <td>$75.00</td>
+                                            <td>$142.50</td>
+                                            <td><span class="badge bg-warning">Pending</span></td>
+                                            <td>
+                                                <button class="btn btn-outline-warning btn-sm me-1">Cash Out</button>
+                                                <button class="btn btn-outline-info btn-sm">
+                                                    <i class="bi bi-eye"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Accumulator Won -->
+                                        <tr>
+                                            <td><strong>#BET001244</strong></td>
+                                            <td>Aug 11, 2025<br><small class="text-secondary">19:30</small></td>
+                                            <td>
+                                                <div>3-Fold Accumulator</div>
+                                                <small class="text-secondary">Chelsea, Arsenal, Tottenham</small>
+                                            </td>
+                                            <td>All Win</td>
+                                            <td><span class="badge bg-warning">Accumulator</span></td>
+                                            <td><strong>8.75</strong></td>
+                                            <td>$20.00</td>
+                                            <td>$175.00</td>
+                                            <td><span class="badge bg-success">Won</span></td>
+                                            <td>
+                                                <button class="btn btn-outline-info btn-sm">
+                                                    <i class="bi bi-eye"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Cashed Out Bet -->
+                                        <tr>
+                                            <td><strong>#BET001243</strong></td>
+                                            <td>Aug 10, 2025<br><small class="text-secondary">15:15</small></td>
+                                            <td>
+                                                <div>Djokovic vs Alcaraz</div>
+                                                <small class="text-secondary">US Open</small>
+                                            </td>
+                                            <td>Djokovic Win</td>
+                                            <td><span class="badge bg-primary">Single</span></td>
+                                            <td><strong>1.45</strong></td>
+                                            <td>$100.00</td>
+                                            <td>$145.00</td>
+                                            <td><span class="badge bg-info">Cashed Out</span></td>
+                                            <td>
+                                                <button class="btn btn-outline-info btn-sm">
+                                                    <i class="bi bi-eye"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Lost Accumulator -->
+                                        <tr>
+                                            <td><strong>#BET001242</strong></td>
+                                            <td>Aug 9, 2025<br><small class="text-secondary">18:00</small></td>
+                                            <td>
+                                                <div>5-Fold Accumulator</div>
+                                                <small class="text-secondary">Multiple Football Matches</small>
+                                            </td>
+                                            <td>All Win</td>
+                                            <td><span class="badge bg-warning">Accumulator</span></td>
+                                            <td><strong>32.50</strong></td>
+                                            <td>$15.00</td>
+                                            <td>$487.50</td>
+                                            <td><span class="badge bg-danger">Lost</span></td>
+                                            <td>
+                                                <button class="btn btn-outline-info btn-sm">
+                                                    <i class="bi bi-eye"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Won System Bet -->
+                                        <tr>
+                                            <td><strong>#BET001241</strong></td>
+                                            <td>Aug 8, 2025<br><small class="text-secondary">16:20</small></td>
+                                            <td>
+                                                <div>2/3 System Bet</div>
+                                                <small class="text-secondary">3 Basketball Matches</small>
+                                            </td>
+                                            <td>System 2/3</td>
+                                            <td><span class="badge bg-info">System</span></td>
+                                            <td><strong>4.25</strong></td>
+                                            <td>$30.00</td>
+                                            <td>$127.50</td>
+                                            <td><span class="badge bg-success">Won</span></td>
+                                            <td>
+                                                <button class="btn btn-outline-info btn-sm">
+                                                    <i class="bi bi-eye"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Pending Live Bet -->
+                                        <tr class="live-bet">
+                                            <td><strong>#BET001240</strong></td>
+                                            <td>Aug 13, 2025<br><small class="text-secondary">17:10</small></td>
+                                            <td>
+                                                <div>Inter vs AC Milan <span class="live-indicator"></span></div>
+                                                <small class="text-success">Live - 65'</small>
+                                            </td>
+                                            <td>Next Goal: Inter</td>
+                                            <td><span class="badge bg-danger">Live</span></td>
+                                            <td><strong>2.10</strong></td>
+                                            <td>$40.00</td>
+                                            <td>$84.00</td>
+                                            <td><span class="badge bg-warning">Pending</span></td>
+                                            <td>
+                                                <button class="btn btn-outline-warning btn-sm me-1">Cash Out</button>
+                                                <button class="btn btn-outline-info btn-sm">
+                                                    <i class="bi bi-eye"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <!-- Pagination -->
+                        <div class="card-footer">
+                            <nav>
+                                <ul class="pagination justify-content-center mb-0">
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                    </li>
+                                    <li class="page-item active">
+                                        <a class="page-link" href="#">1</a>
+                                    </li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">2</a>
+                                    </li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">3</a>
+                                    </li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bet Details Modal -->
+    <div class="modal fade" id="betDetailsModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Bet Details - #BET001247</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6 class="text-primary">Bet Information</h6>
+                            <table class="table table-sm table-dark">
+                                <tr>
+                                    <td>Bet ID:</td>
+                                    <td><strong>#BET001247</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Date Placed:</td>
+                                    <td>Aug 13, 2025 14:30</td>
+                                </tr>
+                                <tr>
+                                    <td>Bet Type:</td>
+                                    <td><span class="badge bg-primary">Single</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Status:</td>
+                                    <td><span class="badge bg-success">Won</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Settlement Date:</td>
+                                    <td>Aug 13, 2025 16:45</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="text-primary">Financial Summary</h6>
+                            <table class="table table-sm table-dark">
+                                <tr>
+                                    <td>Stake:</td>
+                                    <td><strong>$50.00</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Odds:</td>
+                                    <td><strong>2.45</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Potential Win:</td>
+                                    <td>$122.50</td>
+                                </tr>
+                                <tr>
+                                    <td>Actual Return:</td>
+                                    <td class="text-success"><strong>$122.50</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Profit:</td>
+                                    <td class="text-success"><strong>+$72.50</strong></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <hr>
+                    
+                    <h6 class="text-primary">Match Details</h6>
+                    <div class="card" style="background: rgba(0,0,0,0.2); border: 1px solid var(--border-color);">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-md-8">
+                                    <h6 class="mb-1">Manchester United vs Liverpool</h6>
+                                    <p class="text-secondary mb-2">Premier League • Aug 13, 2025</p>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <strong>Final Score:</strong> 1 - 2
+                                        </div>
+                                        <div class="col-6">
+                                            <strong>Your Selection:</strong> <span class="text-success">Liverpool Win ✓</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 text-center">
+                                    <div class="match-result">
+                                        <div class="text-success" style="font-size: 2rem;">
+                                            <i class="bi bi-check-circle-fill"></i>
+                                        </div>
+                                        <div class="text-success fw-bold">WINNER</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-primary">Print Receipt</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Bet History JS -->
+    <script>
+        // Filter functionality
+        document.addEventListener('change', function(e) {
+            if (e.target.type === 'checkbox' && e.target.id.includes('status')) {
+                if (e.target.id === 'all-status' && e.target.checked) {
+                    // Uncheck other status filters when "All" is checked
+                    document.querySelectorAll('input[type="checkbox"][id*="status"]:not(#all-status)').forEach(checkbox => {
+                        checkbox.checked = false;
+                    });
+                } else if (e.target.id !== 'all-status' && e.target.checked) {
+                    // Uncheck "All" when any specific status is checked
+                    document.getElementById('all-status').checked = false;
+                }
+            }
+        });
+
+        // Date range filter
+        document.addEventListener('click', function(e) {
+            if (e.target.matches('.btn-outline-primary')) {
+                const parent = e.target.parentElement;
+                if (parent.getAttribute('role') === 'group') {
+                    parent.querySelectorAll('.btn').forEach(btn => btn.classList.remove('active'));
+                    e.target.classList.add('active');
+                }
+            }
+        });
+
+        // View toggle
+        document.addEventListener('click', function(e) {
+            if (e.target.textContent === 'Card View') {
+                // Switch to card view (you could implement this)
+                console.log('Switching to card view...');
+            } else if (e.target.textContent === 'List View') {
+                // Switch to list view
+                console.log('Switching to list view...');
+            }
+        });
+
+        // Cash out functionality
+        document.addEventListener('click', function(e) {
+            if (e.target.textContent === 'Cash Out') {
+                const betRow = e.target.closest('tr');
+                const betId = betRow.querySelector('strong').textContent;
+                
+                if (confirm(`Are you sure you want to cash out bet ${betId}?`)) {
+                    // Simulate cash out
+                    e.target.textContent = 'Cashing Out...';
+                    e.target.disabled = true;
+                    
+                    setTimeout(() => {
+                        betRow.querySelector('.badge.bg-warning').textContent = 'Cashed Out';
+                        betRow.querySelector('.badge.bg-warning').className = 'badge bg-info';
+                        e.target.remove();
+                        
+                        // Show success notification
+                        alert('Bet successfully cashed out!');
+                    }, 2000);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

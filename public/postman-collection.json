@@ -1,0 +1,560 @@
+{
+    "info": {
+        "name": "Laravel Betting Platform API",
+        "description": "Complete API collection for the Laravel betting platform",
+        "version": "1.0.0",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "auth": {
+        "type": "bearer",
+        "bearer": [
+            {
+                "key": "token",
+                "value": "{{auth_token}}",
+                "type": "string"
+            }
+        ]
+    },
+    "variable": [
+        {
+            "key": "base_url",
+            "value": "http://localhost:8000/api/v1",
+            "type": "string"
+        },
+        {
+            "key": "auth_token",
+            "value": "",
+            "type": "string"
+        }
+    ],
+    "item": [
+        {
+            "name": "Authentication",
+            "item": [
+                {
+                    "name": "Register",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\": \"John Doe\",\n    \"email\": \"john@example.com\",\n    \"password\": \"password123\",\n    \"password_confirmation\": \"password123\",\n    \"phone\": \"+1234567890\",\n    \"date_of_birth\": \"1990-01-01\",\n    \"country\": \"US\",\n    \"currency\": \"USD\",\n    \"agree_terms\": true\n}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/auth/register",
+                            "host": ["{{base_url}}"],
+                            "path": ["auth", "register"]
+                        }
+                    }
+                },
+                {
+                    "name": "Login",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"email\": \"john@example.com\",\n    \"password\": \"password123\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/auth/login",
+                            "host": ["{{base_url}}"],
+                            "path": ["auth", "login"]
+                        }
+                    },
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "if (pm.response.code === 200) {",
+                                    "    const response = pm.response.json();",
+                                    "    pm.collectionVariables.set('auth_token', response.data.token);",
+                                    "}"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Get Me",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{auth_token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/auth/me",
+                            "host": ["{{base_url}}"],
+                            "path": ["auth", "me"]
+                        }
+                    }
+                },
+                {
+                    "name": "Logout",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{auth_token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/auth/logout",
+                            "host": ["{{base_url}}"],
+                            "path": ["auth", "logout"]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Profile",
+            "item": [
+                {
+                    "name": "Get Profile",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{auth_token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/profile",
+                            "host": ["{{base_url}}"],
+                            "path": ["profile"]
+                        }
+                    }
+                },
+                {
+                    "name": "Update Profile",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{auth_token}}"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\": \"John Doe Updated\",\n    \"first_name\": \"John\",\n    \"last_name\": \"Doe\",\n    \"phone\": \"+1234567890\",\n    \"address_line_1\": \"123 Main St\",\n    \"city\": \"New York\",\n    \"state\": \"NY\",\n    \"postal_code\": \"10001\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/profile",
+                            "host": ["{{base_url}}"],
+                            "path": ["profile"]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Wallet",
+            "item": [
+                {
+                    "name": "Get Wallets",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{auth_token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/wallet",
+                            "host": ["{{base_url}}"],
+                            "path": ["wallet"]
+                        }
+                    }
+                },
+                {
+                    "name": "Deposit",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{auth_token}}"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"amount\": 100,\n    \"currency\": \"USD\",\n    \"payment_method\": \"credit_card\",\n    \"payment_details\": {\n        \"card_number\": \"4111111111111111\",\n        \"expiry\": \"12/25\",\n        \"cvv\": \"123\"\n    }\n}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/wallet/deposit",
+                            "host": ["{{base_url}}"],
+                            "path": ["wallet", "deposit"]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Transactions",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{auth_token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/wallet/transactions",
+                            "host": ["{{base_url}}"],
+                            "path": ["wallet", "transactions"]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Sports",
+            "item": [
+                {
+                    "name": "Get Sports",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{base_url}}/sports",
+                            "host": ["{{base_url}}"],
+                            "path": ["sports"]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Sport Leagues",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{base_url}}/sports/1/leagues",
+                            "host": ["{{base_url}}"],
+                            "path": ["sports", "1", "leagues"]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Matches",
+            "item": [
+                {
+                    "name": "Get Matches",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{base_url}}/matches",
+                            "host": ["{{base_url}}"],
+                            "path": ["matches"]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Live Matches",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{base_url}}/matches/live",
+                            "host": ["{{base_url}}"],
+                            "path": ["matches", "live"]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Match Details",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{base_url}}/matches/1",
+                            "host": ["{{base_url}}"],
+                            "path": ["matches", "1"]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Betting",
+            "item": [
+                {
+                    "name": "Place Bet",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{auth_token}}"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"selections\": [\n        {\n            \"bet_option_id\": 1,\n            \"odds\": 2.50\n        }\n    ],\n    \"stake\": 10,\n    \"bet_type\": \"single\",\n    \"currency\": \"USD\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/bets",
+                            "host": ["{{base_url}}"],
+                            "path": ["bets"]
+                        }
+                    }
+                },
+                {
+                    "name": "Get User Bets",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{auth_token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/bets",
+                            "host": ["{{base_url}}"],
+                            "path": ["bets"]
+                        }
+                    }
+                },
+                {
+                    "name": "Cash Out Bet",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{auth_token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/bets/BET_123456789/cashout",
+                            "host": ["{{base_url}}"],
+                            "path": ["bets", "BET_123456789", "cashout"]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Promotions",
+            "item": [
+                {
+                    "name": "Get Promotions",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{auth_token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/promotions",
+                            "host": ["{{base_url}}"],
+                            "path": ["promotions"]
+                        }
+                    }
+                },
+                {
+                    "name": "Claim Promotion",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{auth_token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/promotions/1/claim",
+                            "host": ["{{base_url}}"],
+                            "path": ["promotions", "1", "claim"]
+                        }
+                    }
+                },
+                {
+                    "name": "Apply Promo Code",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{auth_token}}"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"promo_code\": \"WELCOME100\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/promotions/promo-code",
+                            "host": ["{{base_url}}"],
+                            "path": ["promotions", "promo-code"]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Notifications",
+            "item": [
+                {
+                    "name": "Get Notifications",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{auth_token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/notifications",
+                            "host": ["{{base_url}}"],
+                            "path": ["notifications"]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Unread Count",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{auth_token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/notifications/unread-count",
+                            "host": ["{{base_url}}"],
+                            "path": ["notifications", "unread-count"]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Admin",
+            "item": [
+                {
+                    "name": "Get Dashboard Stats",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{auth_token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/admin/dashboard",
+                            "host": ["{{base_url}}"],
+                            "path": ["admin", "dashboard"]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Users",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{auth_token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/admin/users",
+                            "host": ["{{base_url}}"],
+                            "path": ["admin", "users"]
+                        }
+                    }
+                },
+                {
+                    "name": "Create Match",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{auth_token}}"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"sport_id\": 1,\n    \"league_id\": 1,\n    \"home_team_id\": 1,\n    \"away_team_id\": 2,\n    \"start_time\": \"2024-12-25 20:00:00\",\n    \"venue\": \"Stadium Name\",\n    \"is_featured\": true\n}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/admin/matches",
+                            "host": ["{{base_url}}"],
+                            "path": ["admin", "matches"]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Public",
+            "item": [
+                {
+                    "name": "System Info",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{base_url}}/public/system-info",
+                            "host": ["{{base_url}}"],
+                            "path": ["public", "system-info"]
+                        }
+                    }
+                },
+                {
+                    "name": "Health Check",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{base_url}}/public/health",
+                            "host": ["{{base_url}}"],
+                            "path": ["public", "health"]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
